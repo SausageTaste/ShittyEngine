@@ -56,14 +56,14 @@ class GameObject:
 
         self.renderUnits:List[ren.RenderUnit] = [];
 
-    def getModelMat(self) -> glm.tmat4x4:
+    def getModelMat(self) -> glm.mat4:
         tranMat = glm.translate(glm.mat4(1), self.pos.getVec());
         rotMat = self.angle.getModelMat();
         scaleMat = glm.scale(glm.mat4(1), self.scale);
 
         return tranMat * rotMat * scaleMat;
 
-    def getViewMat(self) -> glm.tmat4x4:
+    def getViewMat(self) -> glm.mat4:
         m = self.angle.getViewMat();
         m = glm.translate(m, -self.pos.getVec());
         return m;

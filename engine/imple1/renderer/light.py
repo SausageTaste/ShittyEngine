@@ -46,7 +46,7 @@ class DirectionalLight(AbcLight):
         self.__direction.z = z;
         self.__direction = glm.normalize(self.__direction);
 
-    def transformDirection(self, mat:glm.tmat4x4):
+    def transformDirection(self, mat:glm.mat4):
         self.__direction = glm.normalize(glm.vec3(mat * glm.vec4(self.__direction, 1.0)));
 
     def sendUniforms(self, uniloc:sha.UnilocGeneral, index:int) -> None:

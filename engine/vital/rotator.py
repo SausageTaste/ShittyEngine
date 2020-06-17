@@ -5,7 +5,7 @@ import glm;
 
 class AngleABC(ABC):
     @abstractmethod
-    def getViewMat(self) -> glm.tmat4x4:
+    def getViewMat(self) -> glm.mat4:
         pass
 
 
